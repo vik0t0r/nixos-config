@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/common.nix
+    ../../modules/desktop/kde.nix
   ];
 
   networking.hostName = "laptop";
@@ -14,11 +15,6 @@
   # Bootloader (host-specific)
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Desktop environment (keep here if laptop-only; move to common if all hosts use GNOME)
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   system.stateVersion = "25.11";
 }
